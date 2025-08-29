@@ -1,0 +1,3 @@
+Username (leave blank to use 'blaz0'): blaz
+Email address: strusnik.blaz@gmail.com
+Password:spidi001
