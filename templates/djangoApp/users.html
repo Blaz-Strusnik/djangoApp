@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Hello this is index.html {{ insertMe }}</h1>
+    <h2>Here are some access records:</h2>
+    <div class="djangoApp">
+{% if users %}
+<ol>
+    
+        {% for person in users %}
+        <li>User info</li>
+        <ul>
+        <li>{{ person.first_name }}</li> 
+        <li>{{ person.last_name }} </li>
+        <li>{{ person.email }}</li>
+        </ul>
+        {% endfor %}
+</ol>
+    {% endif %}
+
+
+    <img src="{% static 'images/profile.jpg' %}" alt="Django Image">
+</body>
+</html>
