@@ -23,5 +23,6 @@ urlpatterns = [
     re_path(r'^$', views.index, name='index'),
     re_path(r'^djangoApp', include('djangoApp.urls')),
     re_path(r'^djangoApp/users', include('djangoApp.urls')),
+    re_path(r'^djangoApp/formpage', include('djangoApp.urls')),
     path('admin/', admin.site.urls),
 ]
