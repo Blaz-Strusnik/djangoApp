@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from djangoApp.models import Topic, Webpage, AccessRecord, User
 from . import forms
+from djangoApp.forms import NewUserForm
 # Create your views here.
 def index(request):
     webpages_list = AccessRecord.objects.order_by('date')
@@ -13,6 +14,19 @@ def users(request):
     user_dict = {'users': user_list}
     return render(request, 'djangoApp/users.html', context=user_dict)
 '''
+def users(request):
+    form = NewUserForm()
+
+    if request.method == 'POST':
+        form = NewUserForm(request.POST)
+        
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            print("Error: Form Invalid")
+    return render(request, 'djangoApp/users.html', {'form': form}) 
+
 
 def form_name_view(request):
     form = forms.FormName()

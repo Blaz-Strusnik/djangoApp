@@ -9,7 +9,7 @@ __pycache__/
 dist/
 build/
 .eggs/
-
+DjangoEnv/
 # Django
 *.log
 *.pot

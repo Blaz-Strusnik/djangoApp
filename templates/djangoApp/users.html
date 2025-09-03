@@ -10,6 +10,14 @@
 <body>
     <h1>Hello this is index.html {{ insertMe }}</h1>
     <h2>Here are some access records:</h2>
+        <div class ="container">
+        <form method="POST">
+        {{ form.as_p}}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+    </div>
+
     <div class="djangoApp">
 {% if users %}
 <ol>
