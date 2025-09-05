@@ -17,6 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 TEMPLATES_DIR = BASE_DIR / "templates"
 STATIC_DIR = BASE_DIR / "static"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 print (TEMPLATES_DIR)
 # Quick-start development settings - unsuitable for production
