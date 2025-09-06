@@ -19,9 +19,17 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a class="navbar-link" href="{% url 'djangoApp:index' %}">Index</a></li>
-      <li><a class="navbar-link" href="{% url 'djangoApp:users' %}">Users</a></li>
+
       <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
       <li><a class="navbar-link" href="{% url 'index' %}">index2</a></li>
+      <li><a class="navbar-link" href="{% url 'djangoApp:register' %}">Register</a></li>
+    
+    {% if user.is_authenticated %}
+        <li><a class="navbar-link" href="{% url 'djangoApp:logout' %}">Logout</a></li>
+    {% else %}
+        <li><a class="navbar-link" href="{% url 'djangoApp:user_login' %}">Login</a></li>
+    {% endif %}
+
     </ul>
   </div>
 </nav>

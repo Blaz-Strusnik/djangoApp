@@ -19,10 +19,13 @@ from django.urls import path, re_path
 from django.conf.urls import include
 from djangoApp import views 
 
+app_name = 'djangoApp'
+
 urlpatterns = [
     re_path(r'^$', views.index, name='index'),
     re_path(r'^djangoApp/', include('djangoApp.urls')),
    # re_path(r'^djangoApp/users', include('djangoApp.urls')),
     #re_path(r'^djangoApp/formpage', include('djangoApp.urls')),
+    re_path(r'^djangoApp/logout', views.user_logout, name='logout'),
     path('admin/', admin.site.urls),
 ]

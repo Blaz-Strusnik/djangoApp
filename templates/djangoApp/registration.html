@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends 'djangoApp/base.html' %}
+{% load static %}
+{% block body_block %}
+
+
+<div class="jumbotron">
+
+{% if registered %}
+<h3>Thank you for registering. You can now login.</h3>
+{% else %}
+    <h2>Register here</h2>
+    <div class ="container">
+        <form method="POST" enctype="multipart/form-data">
+        {{ user_form.as_p}}
+        {{ profile_form.as_p}}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+
+{% endif %}
+</div>
+
+{%endblock %}

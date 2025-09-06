@@ -16,7 +16,7 @@ DjangoEnv/
 *.pyc
 *.mo
 db.sqlite3
-media/
+#media/
 staticfiles/
 local_settings.py
 
