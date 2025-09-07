@@ -6,18 +6,27 @@ from django.contrib.auth.decorators import login_required
 from djangoApp.models import Topic, Webpage, AccessRecord, User
 from . import forms
 from djangoApp.forms import NewUserForm
-from django.views.generic import View
+from django.views.generic import View, TemplateView
 from django.http import HttpResponse
 
 # Create your views here.
 
 #Class based views
 
+class IndexView(TemplateView):
+    template_name = 'djangoApp/index.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['injectme'] = 'BASIC INJECTION!'
+        return context
+
+'''
 class CBView(View):
     def get(self, request):
         return HttpResponse("CLASS BASED VIEWS ARE COOL!")
 
-'''
+#Function based views
 def index(request):
     webpages_list = AccessRecord.objects.order_by('date')
     date_dict = {'access_records': webpages_list}
