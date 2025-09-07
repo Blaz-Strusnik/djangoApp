@@ -6,13 +6,23 @@ from django.contrib.auth.decorators import login_required
 from djangoApp.models import Topic, Webpage, AccessRecord, User
 from . import forms
 from djangoApp.forms import NewUserForm
+from django.views.generic import View
+from django.http import HttpResponse
 
 # Create your views here.
+
+#Class based views
+
+class CBView(View):
+    def get(self, request):
+        return HttpResponse("CLASS BASED VIEWS ARE COOL!")
+
+'''
 def index(request):
     webpages_list = AccessRecord.objects.order_by('date')
     date_dict = {'access_records': webpages_list}
     return render(request, 'djangoApp/index.html', context=date_dict)
-'''
+
 def users(request):
     user_list = User.objects.order_by('first_name')
     user_dict = {'users': user_list}
