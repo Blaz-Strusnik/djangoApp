@@ -3,9 +3,16 @@
 {% block body_block %}
 
 <h1>Welcome to a list all the schools!</h1>
+<a class="btn btn-success" href="{% url 'djangoApp:create' %}">Create New School</a>
 <ol>
     {% for school in schools %}
-   <li><a href="{% url 'djangoApp:detail' school.id %}">{{school.name}}</a></li>
+    <li>
+        <a href="{% url 'djangoApp:detail' school.id %}">{{ school.name }}</a>
+        |
+        <a href="{% url 'djangoApp:update' school.id %}">Update</a>
+        |
+        <a href="{% url 'djangoApp:delete' school.id %}">Delete</a>
+    </li>
     {% endfor %}
 </ol>
 {% endblock %}

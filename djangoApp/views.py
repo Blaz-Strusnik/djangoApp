@@ -33,7 +33,7 @@ class SchoolCreateView(CreateView):
     model = School
 
 class SchoolUpdateView(UpdateView):
-    fields = ('name', 'principal')
+    fields = ('name', 'principal', 'location')
     template_name = 'djangoApp/school_form.html'
     model = School
 
