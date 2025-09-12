@@ -3,15 +3,45 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from djangoApp.models import Topic, Webpage, AccessRecord, User
+from djangoApp.models import School, Topic, Webpage, AccessRecord, User
 from . import forms
 from djangoApp.forms import NewUserForm
-from django.views.generic import View, TemplateView
+from django.views.generic import (View, TemplateView,
+                                  ListView, DetailView,
+                                  CreateView, UpdateView, 
+                                  DeleteView)
 from django.http import HttpResponse
+from django.urls import reverse_lazy
 
 # Create your views here.
 
 #Class based views
+
+class SchoolListView(ListView):
+    context_object_name = 'schools'
+    model = School
+    template_name = 'djangoApp/school_list.html'
+
+class SchoolDetailView(DetailView):
+    context_object_name = 'school_detail'
+    model = School
+    template_name = 'djangoApp/school_detail.html'
+
+class SchoolCreateView(CreateView):
+    fields = ('name', 'principal', 'location')
+    template_name = 'djangoApp/school_form.html'
+    model = School
+
+class SchoolUpdateView(UpdateView):
+    fields = ('name', 'principal')
+    template_name = 'djangoApp/school_form.html'
+    model = School
+
+class SchoolDeleteView(DeleteView):
+    model = School
+    success_url = reverse_lazy('djangoApp:list')
+
+
 
 class IndexView(TemplateView):
     template_name = 'djangoApp/index.html'

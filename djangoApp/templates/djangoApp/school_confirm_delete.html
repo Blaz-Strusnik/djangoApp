@@ -1,0 +1,12 @@
+{% extends "djangoApp/djangoApp_base.html" %}
+
+{% block body_block %}
+
+<h1>Delete {{school.name}}</h1>
+<form method="POST">
+  {% csrf_token %}
+  <p>Are you sure you want to delete "{{school.name}}"?</p>
+  <button type="submit" class="btn btn-danger">Confirm Delete</button>
+  <a class="btn btn-secondary" href="{% url 'djangoApp:detail' pk=school.pk %}" role="button">Cancel</a>
+
+{% endblock %}
